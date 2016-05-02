@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class OAuthViewController: UIViewController {
 
@@ -45,6 +46,19 @@ class OAuthViewController: UIViewController {
 
 extension OAuthViewController:UIWebViewDelegate{
     
+    func webViewDidStartLoad(webView: UIWebView) {
+        SVProgressHUD.showInfoWithStatus("正在加载...",maskType: SVProgressHUDMaskType.Black)
+    }
+    func webViewDidLoadLoad(webView: UIWebView) {
+        SVProgressHUD.dismiss()
+    }
+    
+    class func userLogin() -> Bool{
+    
+        return UserAccount.loadAccount() != nil
+    }
+    
+    
     func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool{
         
         
@@ -57,6 +71,7 @@ extension OAuthViewController:UIWebViewDelegate{
         if request.URL!.query!.hasPrefix(codeStr){
             let code = request.URL!.query!.substringFromIndex(codeStr.endIndex)
             print(code)
+            loadAccessToken(code)
         }else{
             close()
         }
@@ -64,6 +79,31 @@ extension OAuthViewController:UIWebViewDelegate{
         
     }
     
+    private func loadAccessToken(code:String){
+        let path = "oauth2/access_token"
+        let params = ["client_id":WB_App_Key, "client_secret":WB_App_Secret, "grant_type":"authorization_code", "code":code, "redirect_uri":WB_redirect_uri]
+        
+        NetworkTools.shareNetworkTools().POST(path, parameters: params, success: { (_, JSON) in
+            
+            let account = UserAccount(dict: JSON as! [String : AnyObject])
+            
+            account.loadUserInfo { (account, error) -> () in
+                if account != nil
+                {
+                    account!.saveAccount()
+                }
+                else{
+                    SVProgressHUD.showInfoWithStatus("网络不给力", maskType: SVProgressHUDMaskType.Black)
+                }
+                
+            }
+
+
+            print(account)
+            }) { (_, error) in
+                print(error)
+        }
+    }
     
     
 }

@@ -11,7 +11,7 @@ import UIKit
 class BaseTableViewController: UITableViewController,VisitorViewDeletage {
 
     
-    var userLogin = false
+    var userLogin = UserAccount.userLogin()
     
     var visitorView:VisitorView?
     
