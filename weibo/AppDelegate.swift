@@ -22,7 +22,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
         
         window?.backgroundColor = UIColor.whiteColor()
-        window?.rootViewController = MainTabBarViewController()
+//        window?.rootViewController = MainTabBarViewController()
+        window?.rootViewController = NewfeatureCollectionViewController()
+
         window?.makeKeyAndVisible()
         
         return true

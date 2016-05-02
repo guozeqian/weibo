@@ -33,6 +33,7 @@
 		5F8D0A8B1CD704230084D763 /* NetworkTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F8D0A8A1CD704230084D763 /* NetworkTools.swift */; };
 		5F8D0A8D1CD70D1F0084D763 /* UserAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F8D0A8C1CD70D1F0084D763 /* UserAccount.swift */; };
 		5F99A9281CD72A8200177BFC /* String+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F99A9271CD72A8200177BFC /* String+Category.swift */; };
+		5F99A92B1CD7730500177BFC /* NewfeatureCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F99A92A1CD7730500177BFC /* NewfeatureCollectionViewController.swift */; };
 		5FC2BEAC1CCD000600850D74 /* MainVCSettings.json in Resources */ = {isa = PBXBuildFile; fileRef = 5FC2BEAA1CCD000600850D74 /* MainVCSettings.json */; };
 		5FC2BEAD1CCD000600850D74 /* NullViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC2BEAB1CCD000600850D74 /* NullViewController.swift */; };
 /* End PBXBuildFile section */
@@ -100,6 +101,7 @@
 		5F8D0A8A1CD704230084D763 /* NetworkTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkTools.swift; sourceTree = "<group>"; };
 		5F8D0A8C1CD70D1F0084D763 /* UserAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAccount.swift; sourceTree = "<group>"; };
 		5F99A9271CD72A8200177BFC /* String+Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Category.swift"; sourceTree = "<group>"; };
+		5F99A92A1CD7730500177BFC /* NewfeatureCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewfeatureCollectionViewController.swift; sourceTree = "<group>"; };
 		5FC2BEAA1CCD000600850D74 /* MainVCSettings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MainVCSettings.json; sourceTree = "<group>"; };
 		5FC2BEAB1CCD000600850D74 /* NullViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NullViewController.swift; sourceTree = "<group>"; };
 		929B6C57C0D0D3556AAD560C /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -194,6 +196,7 @@
 		5F09E0E41CCB8F13005A3E8D /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				5F99A9291CD772E000177BFC /* Newfeature */,
 				5F4D89DB1CD60C3100F750E0 /* OAuth */,
 				5F09E0E51CCB8F13005A3E8D /* Common */,
 				5F09E0E61CCB8F13005A3E8D /* Discover */,
@@ -297,6 +300,14 @@
 				5F62CC251CD5A325000E029D /* QRCodeCardViewController.swift */,
 			);
 			path = QRCode;
+			sourceTree = "<group>";
+		};
+		5F99A9291CD772E000177BFC /* Newfeature */ = {
+			isa = PBXGroup;
+			children = (
+				5F99A92A1CD7730500177BFC /* NewfeatureCollectionViewController.swift */,
+			);
+			path = Newfeature;
 			sourceTree = "<group>";
 		};
 		5FC2BEA91CCD000600850D74 /* Resource */ = {
@@ -523,6 +534,7 @@
 				5F1CC6051CCE5F1F00C960B5 /* VisitorView.swift in Sources */,
 				5F09E0ED1CCB8F3B005A3E8D /* MainTabBarViewController.swift in Sources */,
 				5FC2BEAD1CCD000600850D74 /* NullViewController.swift in Sources */,
+				5F99A92B1CD7730500177BFC /* NewfeatureCollectionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
