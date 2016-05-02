@@ -11,7 +11,7 @@ import UIKit
 class BaseTableViewController: UITableViewController,VisitorViewDeletage {
 
     
-    var userLogin = true
+    var userLogin = false
     
     var visitorView:VisitorView?
     
@@ -32,10 +32,12 @@ class BaseTableViewController: UITableViewController,VisitorViewDeletage {
         
     }
     func loginButtonWillClick() {
-        print(__FUNCTION__)
+        let oauthVC = OAuthViewController()
+        let nav = UINavigationController(rootViewController: oauthVC)
+        presentViewController(nav, animated: true , completion: nil)
     }
     func registerButtonWillClick() {
-        print(__FUNCTION__)
+        print(#function)
     }
    
 }
