@@ -37,7 +37,7 @@ class BaseTableViewController: UITableViewController,VisitorViewDeletage {
         presentViewController(nav, animated: true , completion: nil)
     }
     func registerButtonWillClick() {
-        print(#function)
+        print("registerButtonWillClick")
     }
    
 }
