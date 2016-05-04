@@ -90,8 +90,8 @@ class NewfeatureCell:UICollectionViewCell{
     
     func startButtonClick(){
         //print("startButtonClick")
-        let main = MainTabBarViewController()
-        let nav = UINavigationController(rootViewController: main)
+//        let main = MainTabBarViewController()
+//        let nav = UINavigationController(rootViewController: main)
         //presentViewController(nav, animated: true, completion: nil)
     }
     
