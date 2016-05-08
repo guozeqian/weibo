@@ -23,11 +23,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window?.backgroundColor = UIColor.whiteColor()
 //        window?.rootViewController = MainTabBarViewController()
-        window?.rootViewController = NewfeatureCollectionViewController()
+        //window?.rootViewController = NewfeatureCollectionViewController()
+        window?.rootViewController = WelcomeViewController()
 
         window?.makeKeyAndVisible()
         
         return true
+    }
+    
+    /**
+     判断是否是第一次登陆
+     
+     - returns: 返回true or false
+     */
+    private func isNewUpdate() -> Bool{
+        
+        
+        
+        return false
+        
     }
 
     func applicationWillResignActive(application: UIApplication) {
