@@ -24,21 +24,37 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.backgroundColor = UIColor.whiteColor()
 //        window?.rootViewController = MainTabBarViewController()
         //window?.rootViewController = NewfeatureCollectionViewController()
-        window?.rootViewController = WelcomeViewController()
-
+//        isNewUpdate()
+//        window?.rootViewController = WelcomeViewController()
+        
+        window?.rootViewController = defaultController()
+        
         window?.makeKeyAndVisible()
         
         return true
     }
     
+    private func defaultController() -> UIViewController{
+        if UserAccount.userLogin(){
+            return isNewUpdate() ? NewfeatureCollectionViewController() : WelcomeViewController()  
+        }
+        return isNewUpdate() ? NewfeatureCollectionViewController() : MainTabBarViewController()
+    }
     /**
      判断是否是第一次登陆
      
      - returns: 返回true or false
      */
     private func isNewUpdate() -> Bool{
+        let currentVersion = NSBundle.mainBundle().infoDictionary!["CFBundleShortVersionString"] as! String
         
+        let sandboxVersion = NSUserDefaults.standardUserDefaults().objectForKey("CFBundleShortVersionString") as? String ?? ""
         
+        if currentVersion.compare(sandboxVersion) == NSComparisonResult.OrderedDescending
+        {
+            NSUserDefaults.standardUserDefaults().setObject(currentVersion, forKey: "CFBundleShortVersionString")
+            return true
+        }
         
         return false
         
