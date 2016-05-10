@@ -37,6 +37,9 @@
 		5FB8EE8F1CDE3A0900EF4535 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB8EE8E1CDE3A0900EF4535 /* WelcomeViewController.swift */; };
 		5FC2BEAC1CCD000600850D74 /* MainVCSettings.json in Resources */ = {isa = PBXBuildFile; fileRef = 5FC2BEAA1CCD000600850D74 /* MainVCSettings.json */; };
 		5FC2BEAD1CCD000600850D74 /* NullViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC2BEAB1CCD000600850D74 /* NullViewController.swift */; };
+		5FFD44F71CE1FC290062B0A9 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFD44F61CE1FC290062B0A9 /* Status.swift */; };
+		5FFD44F91CE201750062B0A9 /* PopoverAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFD44F81CE201750062B0A9 /* PopoverAnimator.swift */; };
+		5FFD44FB1CE2176E0062B0A9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFD44FA1CE2176E0062B0A9 /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,6 +109,9 @@
 		5FB8EE8E1CDE3A0900EF4535 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		5FC2BEAA1CCD000600850D74 /* MainVCSettings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MainVCSettings.json; sourceTree = "<group>"; };
 		5FC2BEAB1CCD000600850D74 /* NullViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NullViewController.swift; sourceTree = "<group>"; };
+		5FFD44F61CE1FC290062B0A9 /* Status.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
+		5FFD44F81CE201750062B0A9 /* PopoverAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverAnimator.swift; sourceTree = "<group>"; };
+		5FFD44FA1CE2176E0062B0A9 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		929B6C57C0D0D3556AAD560C /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -234,6 +240,8 @@
 				5F6299F41CD1145C0055A93F /* QRCode */,
 				5F6299E91CD0F1F30055A93F /* Popover */,
 				5F09E0EE1CCB8F4D005A3E8D /* HomeTableViewController.swift */,
+				5FFD44F61CE1FC290062B0A9 /* Status.swift */,
+				5FFD44FA1CE2176E0062B0A9 /* User.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -290,6 +298,7 @@
 				5F6299EC1CD0F22F0055A93F /* PopoverViewController.storyboard */,
 				5F6299EE1CD0FC7E0055A93F /* PopoverPresentationController.swift */,
 				5F6299F01CD0FD180055A93F /* PopoverViewController.swift */,
+				5FFD44F81CE201750062B0A9 /* PopoverAnimator.swift */,
 			);
 			path = Popover;
 			sourceTree = "<group>";
@@ -520,6 +529,7 @@
 				5F62CC261CD5A325000E029D /* QRCodeCardViewController.swift in Sources */,
 				5F6299EF1CD0FC7E0055A93F /* PopoverPresentationController.swift in Sources */,
 				5F09E0F51CCB8F77005A3E8D /* ProfileTableViewController.swift in Sources */,
+				5FFD44FB1CE2176E0062B0A9 /* User.swift in Sources */,
 				5F4D89DD1CD60CDD00F750E0 /* OAuthViewController.swift in Sources */,
 				5F6299F11CD0FD180055A93F /* PopoverViewController.swift in Sources */,
 				5F8D0A8D1CD70D1F0084D763 /* UserAccount.swift in Sources */,
@@ -534,10 +544,12 @@
 				5F6299F81CD114840055A93F /* QRCodeViewController.swift in Sources */,
 				5F1CC6071CCE628000C960B5 /* UIView+AutoLayout.swift in Sources */,
 				5F09E0F11CCB8F5E005A3E8D /* DiscoverTableViewController.swift in Sources */,
+				5FFD44F71CE1FC290062B0A9 /* Status.swift in Sources */,
 				5F8D0A8B1CD704230084D763 /* NetworkTools.swift in Sources */,
 				5F1CC6051CCE5F1F00C960B5 /* VisitorView.swift in Sources */,
 				5F09E0ED1CCB8F3B005A3E8D /* MainTabBarViewController.swift in Sources */,
 				5FC2BEAD1CCD000600850D74 /* NullViewController.swift in Sources */,
+				5FFD44F91CE201750062B0A9 /* PopoverAnimator.swift in Sources */,
 				5F99A92B1CD7730500177BFC /* NewfeatureCollectionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
