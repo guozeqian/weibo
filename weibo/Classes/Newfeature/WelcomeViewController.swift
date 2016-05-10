@@ -65,9 +65,20 @@ class WelcomeViewController: UIViewController {
         //print(bottomCons!.constant)
         
         UIView.animateWithDuration(2, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 1, options: UIViewAnimationOptions(rawValue: 0), animations: { () -> Void in
-            self.messageLabel.alpha = 1.0
+            //self.messageLabel.alpha = 1.0
+            self.iconView.layoutIfNeeded()
+            
+            
             }) { (_) -> Void in
-                print("OK")
+                // 文本动画
+                UIView.animateWithDuration(2.0, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 1, options: UIViewAnimationOptions(rawValue: 0), animations: { () -> Void in
+                    self.messageLabel.alpha = 1.0
+                    }, completion: { (_) -> Void in
+                        //去主页，调用通知
+                        NSNotificationCenter.defaultCenter().postNotificationName(XMGSwitchRootviewControllerKey, object: true)
+                })
+                
+                
         }
         
     }

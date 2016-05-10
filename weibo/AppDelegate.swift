@@ -8,11 +8,15 @@
 
 import UIKit
 
+//控制器切换通知
+let XMGSwitchRootviewControllerKey = "XMGSwitchRootViewControllerKey"
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
@@ -27,11 +31,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        isNewUpdate()
 //        window?.rootViewController = WelcomeViewController()
         
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "switchRootViewController:", name: XMGSwitchRootviewControllerKey, object: nil)
+        
         window?.rootViewController = defaultController()
         
         window?.makeKeyAndVisible()
         
         return true
+    }
+    
+    func switchRootViewController(notify:NSNotification){
+        if notify.object as! Bool
+        {
+            window?.rootViewController = MainTabBarViewController()
+        }else{
+            window?.rootViewController = WelcomeViewController()
+        }
+    }
+    deinit{
+        NSNotificationCenter.defaultCenter().removeObserver(self)
     }
     
     private func defaultController() -> UIViewController{

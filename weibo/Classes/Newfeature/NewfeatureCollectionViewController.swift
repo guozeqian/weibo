@@ -89,10 +89,7 @@ class NewfeatureCell:UICollectionViewCell{
     }
     
     func startButtonClick(){
-        print("startButtonClick")
-        //let main = MainTabBarViewController()
-        //let nav = UINavigationController(rootViewController: main)
-        //presentViewController(nav, animated: true, completion: nil)
+        NSNotificationCenter.defaultCenter().postNotificationName(XMGSwitchRootviewControllerKey, object: false)
     }
     
     private func setupUI(){
