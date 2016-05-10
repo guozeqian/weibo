@@ -32,8 +32,11 @@ class HomeTableViewController: BaseTableViewController {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "change", name: XMGPopoverAnimatorWilldismiss, object: nil)
         
         // 注册一个cell
-        tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: XMGHomeReuseIdentifier)
-
+        tableView.registerClass(StatusTableViewCell.self, forCellReuseIdentifier: XMGHomeReuseIdentifier)
+        
+//        tableView.estimatedRowHeight = 200
+//        tableView.rowHeight = UITableViewAutomaticDimension
+//        tableView.separatorStyle = UITableViewCellSeparatorStyle.None
         
         loadData()
     }
@@ -44,10 +47,11 @@ class HomeTableViewController: BaseTableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         // 1.获取cell
-        let cell = tableView.dequeueReusableCellWithIdentifier(XMGHomeReuseIdentifier, forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier(XMGHomeReuseIdentifier, forIndexPath: indexPath) as! StatusTableViewCell
         // 2.设置数据
         let status = statuses![indexPath.row]
-        cell.textLabel?.text = status.text
+        //cell.textLabel?.text = status.text
+        cell.status = status
         // 3.返回cell
         return cell
     }
