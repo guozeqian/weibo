@@ -34,9 +34,10 @@ class HomeTableViewController: BaseTableViewController {
         // 注册一个cell
         tableView.registerClass(StatusTableViewCell.self, forCellReuseIdentifier: XMGHomeReuseIdentifier)
         
-//        tableView.estimatedRowHeight = 200
-//        tableView.rowHeight = UITableViewAutomaticDimension
-//        tableView.separatorStyle = UITableViewCellSeparatorStyle.None
+        //tableView.rowHeight = 200
+        tableView.estimatedRowHeight = 200
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.separatorStyle = UITableViewCellSeparatorStyle.None
         
         loadData()
     }
@@ -52,6 +53,7 @@ class HomeTableViewController: BaseTableViewController {
         let status = statuses![indexPath.row]
         //cell.textLabel?.text = status.text
         cell.status = status
+        
         // 3.返回cell
         return cell
     }
