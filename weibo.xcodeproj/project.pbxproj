@@ -20,6 +20,8 @@
 		5F1CC6031CCE5E9F00C960B5 /* BaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F1CC6021CCE5E9F00C960B5 /* BaseTableViewController.swift */; };
 		5F1CC6051CCE5F1F00C960B5 /* VisitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F1CC6041CCE5F1F00C960B5 /* VisitorView.swift */; };
 		5F1CC6071CCE628000C960B5 /* UIView+AutoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F1CC6061CCE628000C960B5 /* UIView+AutoLayout.swift */; };
+		5F43480E1CE4A6460067098B /* UILabel+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F43480D1CE4A6460067098B /* UILabel+Category.swift */; };
+		5F4348101CE4A9660067098B /* UIButton+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F43480F1CE4A9650067098B /* UIButton+Category.swift */; };
 		5F44E89A1CE234C4009B3B90 /* StatusTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F44E8991CE234C4009B3B90 /* StatusTableViewCell.swift */; };
 		5F4D89DD1CD60CDD00F750E0 /* OAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4D89DC1CD60CDD00F750E0 /* OAuthViewController.swift */; };
 		5F6299ED1CD0F22F0055A93F /* PopoverViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F6299EC1CD0F22F0055A93F /* PopoverViewController.storyboard */; };
@@ -94,6 +96,8 @@
 		5F1CC6021CCE5E9F00C960B5 /* BaseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTableViewController.swift; sourceTree = "<group>"; };
 		5F1CC6041CCE5F1F00C960B5 /* VisitorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisitorView.swift; sourceTree = "<group>"; };
 		5F1CC6061CCE628000C960B5 /* UIView+AutoLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+AutoLayout.swift"; sourceTree = "<group>"; };
+		5F43480D1CE4A6460067098B /* UILabel+Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Category.swift"; sourceTree = "<group>"; };
+		5F43480F1CE4A9650067098B /* UIButton+Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Category.swift"; sourceTree = "<group>"; };
 		5F44E8991CE234C4009B3B90 /* StatusTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusTableViewCell.swift; sourceTree = "<group>"; };
 		5F4D89DC1CD60CDD00F750E0 /* OAuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthViewController.swift; sourceTree = "<group>"; };
 		5F6299EC1CD0F22F0055A93F /* PopoverViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PopoverViewController.storyboard; sourceTree = "<group>"; };
@@ -224,6 +228,8 @@
 			children = (
 				5F719C2B1CCFB5C800325921 /* UIBarButtonItem+Category.swift */,
 				5F719C2D1CCFBB6A00325921 /* titleButton.swift */,
+				5F43480D1CE4A6460067098B /* UILabel+Category.swift */,
+				5F43480F1CE4A9650067098B /* UIButton+Category.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -542,6 +548,7 @@
 				5F1CC6031CCE5E9F00C960B5 /* BaseTableViewController.swift in Sources */,
 				5F09E0B51CCB8D21005A3E8D /* AppDelegate.swift in Sources */,
 				5F09E0F31CCB8F6B005A3E8D /* MessageTableViewController.swift in Sources */,
+				5F43480E1CE4A6460067098B /* UILabel+Category.swift in Sources */,
 				5F719C2C1CCFB5C800325921 /* UIBarButtonItem+Category.swift in Sources */,
 				5F99A9281CD72A8200177BFC /* String+Category.swift in Sources */,
 				5FB8EE8F1CDE3A0900EF4535 /* WelcomeViewController.swift in Sources */,
@@ -549,6 +556,7 @@
 				5F1CC6071CCE628000C960B5 /* UIView+AutoLayout.swift in Sources */,
 				5F09E0F11CCB8F5E005A3E8D /* DiscoverTableViewController.swift in Sources */,
 				5FFD44F71CE1FC290062B0A9 /* Status.swift in Sources */,
+				5F4348101CE4A9660067098B /* UIButton+Category.swift in Sources */,
 				5F8D0A8B1CD704230084D763 /* NetworkTools.swift in Sources */,
 				5F1CC6051CCE5F1F00C960B5 /* VisitorView.swift in Sources */,
 				5F09E0ED1CCB8F3B005A3E8D /* MainTabBarViewController.swift in Sources */,

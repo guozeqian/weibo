@@ -16,7 +16,7 @@ class StatusTableViewCell: UITableViewCell {
             
             nameLabel.text = status?.user?.name
             timeLabel.text = "刚刚"
-            sourceLabel.text = status?.text
+            sourceLabel.text = status?.source
             contentLabel.text = status?.text
         }
     }
@@ -71,34 +71,17 @@ class StatusTableViewCell: UITableViewCell {
     //认证图标
     private lazy var verifiedView:UIImageView = UIImageView(image: UIImage(named: "avatar_enterprise_vip"))
     //昵称
-    private lazy var nameLabel:UILabel = {
-        let label = UILabel()
-        label.textColor = UIColor.darkGrayColor()
-        label.font = UIFont.systemFontOfSize(14)
-        return label
-    }()
+    private lazy var nameLabel:UILabel = UILabel.createLabel(UIColor.darkGrayColor(), fontSize: 14)
     //会员图标
     private lazy var vipView: UIImageView = UIImageView(image: UIImage(named: "common_icon_membership"))
     //时间
-    private lazy var timeLabel: UILabel = {
-        let label = UILabel()
-        label.textColor = UIColor.darkGrayColor()
-        label.font = UIFont.systemFontOfSize(14)
-        return label
-    }()
+    private lazy var timeLabel: UILabel = UILabel.createLabel(UIColor.darkGrayColor(), fontSize: 14)
     //来源
-    private lazy var sourceLabel:UILabel = {
-       let label = UILabel()
-        label.textColor = UIColor.darkGrayColor()
-        label.font = UIFont.systemFontOfSize(14)
-        return label
-    }()
+    private lazy var sourceLabel:UILabel = UILabel.createLabel(UIColor.darkGrayColor(), fontSize: 14)
     //正文
     private lazy var contentLabel:UILabel = {
-        let label = UILabel()
-        label.textColor =  UIColor.darkGrayColor()
+        let label = UILabel.createLabel(UIColor.darkGrayColor(), fontSize: 15)
         label.numberOfLines = 0
-        label.font = UIFont.systemFontOfSize(15)
         label.preferredMaxLayoutWidth = UIScreen.mainScreen().bounds.width - 20
         return label
     }()
