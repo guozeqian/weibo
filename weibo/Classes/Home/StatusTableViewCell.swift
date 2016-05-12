@@ -15,9 +15,12 @@ class StatusTableViewCell: UITableViewCell {
             iconView.sd_setImageWithURL(NSURL(string: (status?.user?.profile_image_url)!))
             
             nameLabel.text = status?.user?.name
-            timeLabel.text = "刚刚"
+            timeLabel.text = status?.created_at
             sourceLabel.text = status?.source
             contentLabel.text = status?.text
+            
+            verifiedView.image = status?.user?.verifiedImage
+            vipView.image = status?.user?.mbrankImage
         }
     }
     

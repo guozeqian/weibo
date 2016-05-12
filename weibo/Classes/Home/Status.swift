@@ -10,10 +10,27 @@ import UIKit
 
 class Status: NSObject {
 
-    var created_at:String?
+    var created_at:String?{
+        didSet{
+            let createDate = NSDate.dateWithStr(created_at!)
+            created_at = createDate.descDate
+        }
+    }
     var id:Int = 0
     var text:String?
-    var source:String?
+    var source:String?{
+        didSet{
+            if let str = source{
+                if str.containsString(">") && str.containsString("<"){
+                    let startLocation = (str as NSString).rangeOfString(">").location + 1
+                    let length = (str as NSString).rangeOfString("<",options: NSStringCompareOptions.BackwardsSearch).location - startLocation
+                    source = "来自: " + (str as NSString).substringWithRange(NSRange(location: startLocation,length: length))
+                }
+            }
+        }
+    }
+    
+    
     var pic_urls:[[String: AnyObject]]?
     var user: User?
     

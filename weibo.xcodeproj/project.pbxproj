@@ -33,6 +33,7 @@
 		5F6458071CD5C6C6001EECE1 /* Pods.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 929B6C57C0D0D3556AAD560C /* Pods.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5F719C2C1CCFB5C800325921 /* UIBarButtonItem+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F719C2B1CCFB5C800325921 /* UIBarButtonItem+Category.swift */; };
 		5F719C2E1CCFBB6A00325921 /* titleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F719C2D1CCFBB6A00325921 /* titleButton.swift */; };
+		5F7F3EA81CE4D722005F99FC /* NSDate+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7F3EA71CE4D722005F99FC /* NSDate+Category.swift */; };
 		5F8D0A8B1CD704230084D763 /* NetworkTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F8D0A8A1CD704230084D763 /* NetworkTools.swift */; };
 		5F8D0A8D1CD70D1F0084D763 /* UserAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F8D0A8C1CD70D1F0084D763 /* UserAccount.swift */; };
 		5F99A9281CD72A8200177BFC /* String+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F99A9271CD72A8200177BFC /* String+Category.swift */; };
@@ -108,6 +109,7 @@
 		5F62CC251CD5A325000E029D /* QRCodeCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeCardViewController.swift; sourceTree = "<group>"; };
 		5F719C2B1CCFB5C800325921 /* UIBarButtonItem+Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Category.swift"; sourceTree = "<group>"; };
 		5F719C2D1CCFBB6A00325921 /* titleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = titleButton.swift; sourceTree = "<group>"; };
+		5F7F3EA71CE4D722005F99FC /* NSDate+Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Category.swift"; sourceTree = "<group>"; };
 		5F8D0A8A1CD704230084D763 /* NetworkTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkTools.swift; sourceTree = "<group>"; };
 		5F8D0A8C1CD70D1F0084D763 /* UserAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAccount.swift; sourceTree = "<group>"; };
 		5F99A9271CD72A8200177BFC /* String+Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Category.swift"; sourceTree = "<group>"; };
@@ -230,6 +232,7 @@
 				5F719C2D1CCFBB6A00325921 /* titleButton.swift */,
 				5F43480D1CE4A6460067098B /* UILabel+Category.swift */,
 				5F43480F1CE4A9650067098B /* UIButton+Category.swift */,
+				5F7F3EA71CE4D722005F99FC /* NSDate+Category.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -543,6 +546,7 @@
 				5F6299F11CD0FD180055A93F /* PopoverViewController.swift in Sources */,
 				5F8D0A8D1CD70D1F0084D763 /* UserAccount.swift in Sources */,
 				5F09E0EF1CCB8F4D005A3E8D /* HomeTableViewController.swift in Sources */,
+				5F7F3EA81CE4D722005F99FC /* NSDate+Category.swift in Sources */,
 				5F719C2E1CCFBB6A00325921 /* titleButton.swift in Sources */,
 				5F44E89A1CE234C4009B3B90 /* StatusTableViewCell.swift in Sources */,
 				5F1CC6031CCE5E9F00C960B5 /* BaseTableViewController.swift in Sources */,
