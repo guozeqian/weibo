@@ -35,7 +35,7 @@ extension NSDate{
         var formatterStr = "HH:mm"
         if calendar.isDateInYesterday(self)
         {
-            return "昨天：" + formatterStr
+            formatterStr =  "昨天:" +  formatterStr
         }
         else{
             // 3.处理一年以内
