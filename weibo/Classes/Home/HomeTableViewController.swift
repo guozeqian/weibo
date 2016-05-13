@@ -8,8 +8,16 @@
 
 import UIKit
 
+let XMGHomeReuseIdentifier = "XMGHomeReuseIdentifier"
+
 class HomeTableViewController: BaseTableViewController {
 
+    var statuses:[Status]?
+        {
+        didSet{
+            tableView.reloadData()
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -19,8 +27,42 @@ class HomeTableViewController: BaseTableViewController {
             return
         }
         setupNav()
+        // 3.注册通知, 监听菜单
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "change", name: XMGPopoverAnimatorWillShow, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "change", name: XMGPopoverAnimatorWilldismiss, object: nil)
+        
+        // 注册一个cell
+        tableView.registerClass(StatusTableViewCell.self, forCellReuseIdentifier: XMGHomeReuseIdentifier)
+        
+        //tableView.rowHeight = 200
+        tableView.estimatedRowHeight = 200
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.separatorStyle = UITableViewCellSeparatorStyle.None
+        
+        loadData()
     }
     
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return statuses?.count ?? 0
+    }
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        // 1.获取cell
+        let cell = tableView.dequeueReusableCellWithIdentifier(XMGHomeReuseIdentifier, forIndexPath: indexPath) as! StatusTableViewCell
+        // 2.设置数据
+        let status = statuses![indexPath.row]
+        //cell.textLabel?.text = status.text
+        cell.status = status
+        
+        // 3.返回cell
+        return cell
+    }
+    
+    deinit
+    {
+        // 移除通知
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
     private func setupNav(){
         navigationItem.leftBarButtonItem = UIBarButtonItem.createButtonItem("navigationbar_friendattention", targent: self, action: "leftItemClick")
         navigationItem.rightBarButtonItem = UIBarButtonItem.createButtonItem("navigationbar_pop", targent: self, action: "rightItemClick")
@@ -30,6 +72,16 @@ class HomeTableViewController: BaseTableViewController {
         titleBtn.addTarget(self, action: "titleBtnClick:", forControlEvents: UIControlEvents.TouchUpInside)
         navigationItem.titleView = titleBtn
         
+    }
+    
+    private func loadData(){
+        Status.loadStatuses { (models, error) -> () in
+            if error != nil {
+                return
+            }
+            self.statuses = models
+        }
+    
     }
     
     func titleBtnClick(btn:titleButton){
@@ -53,6 +105,10 @@ class HomeTableViewController: BaseTableViewController {
     var isPresent:Bool = false
 }
 extension HomeTableViewController:UIViewControllerTransitioningDelegate,UIViewControllerAnimatedTransitioning{
+    
+
+    
+    
     func presentationControllerForPresentedViewController(presented: UIViewController, presentingViewController presenting: UIViewController, sourceViewController source: UIViewController) -> UIPresentationController?{
         return PopoverPresentationController(presentedViewController: presented, presentingViewController: presenting)
     }

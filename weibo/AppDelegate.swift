@@ -8,11 +8,15 @@
 
 import UIKit
 
+//控制器切换通知
+let XMGSwitchRootviewControllerKey = "XMGSwitchRootViewControllerKey"
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
@@ -23,11 +27,55 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window?.backgroundColor = UIColor.whiteColor()
 //        window?.rootViewController = MainTabBarViewController()
-        window?.rootViewController = NewfeatureCollectionViewController()
-
+        //window?.rootViewController = NewfeatureCollectionViewController()
+//        isNewUpdate()
+//        window?.rootViewController = WelcomeViewController()
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "switchRootViewController:", name: XMGSwitchRootviewControllerKey, object: nil)
+        
+        window?.rootViewController = defaultController()
+        
         window?.makeKeyAndVisible()
         
         return true
+    }
+    
+    func switchRootViewController(notify:NSNotification){
+        if notify.object as! Bool
+        {
+            window?.rootViewController = MainTabBarViewController()
+        }else{
+            window?.rootViewController = WelcomeViewController()
+        }
+    }
+    deinit{
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+    
+    private func defaultController() -> UIViewController{
+        if UserAccount.userLogin(){
+            return isNewUpdate() ? NewfeatureCollectionViewController() : WelcomeViewController()  
+        }
+        return isNewUpdate() ? NewfeatureCollectionViewController() : MainTabBarViewController()
+    }
+    /**
+     判断是否是第一次登陆
+     
+     - returns: 返回true or false
+     */
+    private func isNewUpdate() -> Bool{
+        let currentVersion = NSBundle.mainBundle().infoDictionary!["CFBundleShortVersionString"] as! String
+        
+        let sandboxVersion = NSUserDefaults.standardUserDefaults().objectForKey("CFBundleShortVersionString") as? String ?? ""
+        
+        if currentVersion.compare(sandboxVersion) == NSComparisonResult.OrderedDescending
+        {
+            NSUserDefaults.standardUserDefaults().setObject(currentVersion, forKey: "CFBundleShortVersionString")
+            return true
+        }
+        
+        return false
+        
     }
 
     func applicationWillResignActive(application: UIApplication) {
