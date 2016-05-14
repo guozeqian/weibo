@@ -12,7 +12,18 @@ class User: NSObject {
 
     var id: Int = 0
     var name:String?
-    var profile_image_url:String?
+    /// 用户头像地址（中图），50×50像素
+    var profile_image_url: String?
+        {
+        didSet{
+            if let urlStr = profile_image_url
+            {
+                imageURL = NSURL(string: urlStr)
+            }
+        }
+    }
+    /// 用于保存用户头像的URL
+    var imageURL: NSURL?
     var verified:Bool = false
     var verified_type:Int = -1{
         didSet{
