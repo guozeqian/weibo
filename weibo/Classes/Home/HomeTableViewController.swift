@@ -26,6 +26,8 @@ class HomeTableViewController: BaseTableViewController {
             visitorView?.setupVisitorInfo(true, imageName: "visitordiscover_feed_image_house", message: "关注一些人，回这里看看有什么惊喜")
             return
         }
+        
+        
         setupNav()
         // 3.注册通知, 监听菜单
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "change", name: XMGPopoverAnimatorWillShow, object: nil)
@@ -35,11 +37,11 @@ class HomeTableViewController: BaseTableViewController {
         tableView.registerClass(StatusTableViewCell.self, forCellReuseIdentifier: XMGHomeReuseIdentifier)
         
         //tableView.rowHeight = 200
-        tableView.estimatedRowHeight = 200
-        tableView.rowHeight = UITableViewAutomaticDimension
+//        tableView.estimatedRowHeight = 200
+//        tableView.rowHeight = UITableViewAutomaticDimension
         tableView.separatorStyle = UITableViewCellSeparatorStyle.None
-        
         loadData()
+        
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -56,6 +58,19 @@ class HomeTableViewController: BaseTableViewController {
         
         // 3.返回cell
         return cell
+    }
+    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        let status = statuses![indexPath.row]
+        if let height = rowCache[status.id]
+        {
+            return height
+        }
+        let cell = tableView.dequeueReusableCellWithIdentifier(XMGHomeReuseIdentifier) as! StatusTableViewCell
+        let rowHeight = cell.rowHeight(status)
+        rowCache[status.id] = rowHeight
+
+        return rowHeight
     }
     
     deinit
@@ -103,6 +118,10 @@ class HomeTableViewController: BaseTableViewController {
     }
     
     var isPresent:Bool = false
+    
+    var rowCache:[Int:CGFloat] = [Int:CGFloat]()
+    
+    
 }
 extension HomeTableViewController:UIViewControllerTransitioningDelegate,UIViewControllerAnimatedTransitioning{
     

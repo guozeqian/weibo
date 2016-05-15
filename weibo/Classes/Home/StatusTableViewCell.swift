@@ -105,7 +105,20 @@ class StatusTableViewCell: UITableViewCell {
         let width = UIScreen.mainScreen().bounds.width
         footerView.xmg_AlignVertical(type: XMG_AlignType.BottomLeft, referView: pictureView, size: CGSize(width: width, height: 44), offset: CGPoint(x: -10, y: 10))
         
-        footerView.xmg_AlignInner(type: XMG_AlignType.BottomRight, referView: contentView, size: nil, offset: CGPoint(x: -10, y: -10))
+//        footerView.xmg_AlignInner(type: XMG_AlignType.BottomRight, referView: contentView, size: nil, offset: CGPoint(x: -10, y: -10))
+    }
+    
+    /**
+     用于缓存行高
+     
+     - parameter status：模型数据
+     
+     - returns: 行高
+     */
+    func rowHeight(status:Status) ->CGFloat{
+        self.status = status
+        self.layoutIfNeeded()
+        return CGRectGetMaxY(footerView.frame)
     }
     
     /**

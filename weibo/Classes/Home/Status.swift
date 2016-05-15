@@ -54,7 +54,7 @@ class Status: NSObject {
         
         NetworkTools.shareNetworkTools().GET(path, parameters: params, success: { (_, JSON) -> Void in
             let models = dict2Model(JSON!["statuses"] as! [[String:AnyObject]])
-            finished(models: models, error: nil)
+            //finished(models: models, error: nil)
             // 3.缓存微博配图
             cacheStatusImages(models, finished: finished)
             }) { (_, error) -> Void in
