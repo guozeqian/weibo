@@ -10,6 +10,26 @@ import UIKit
 import SDWebImage
 
 let XMGPictureViewCellReuseIdentifier = "XMGPictureViewCellReuseIdentifier"
+
+/**
+ 保存cell的重用标示
+ 
+ - NormalCell:  原创微博的重用标识
+ - ForwardCell: 转发微博的重用标识
+ */
+enum StatusTableViewCellIdentifier: String
+{
+    case NormalCell = "NormalCell"
+    case ForwardCell = "ForwardCell"
+    
+    // 如果在枚举中利用static修饰一个方法 , 相当于类中的class修饰方法
+    // 如果调用枚举值的rawValue, 那么意味着拿到枚举对应的原始值
+    static func cellID(status: Status) ->String
+    {
+        return status.retweeted_status != nil ? ForwardCell.rawValue : NormalCell.rawValue
+    }
+}
+
 class StatusTableViewCell: UITableViewCell {
     
 
@@ -17,6 +37,9 @@ class StatusTableViewCell: UITableViewCell {
     var pictureWidthCons: NSLayoutConstraint?
     /// 保存配图的高度约束
     var pictureHeightCons: NSLayoutConstraint?
+    //保存配图的约束
+    var pictureTopCons: NSLayoutConstraint?
+    
     
     var status:Status?{
         didSet{
@@ -26,8 +49,9 @@ class StatusTableViewCell: UITableViewCell {
             // 设置正文
             contentLabel.text = status?.text
 
-            // 1.4刷新表格
-            pictureView.status = status
+            // 设置配图的尺寸
+            pictureView.status = status?.retweeted_status != nil ? status?.retweeted_status :  status
+
            // pictureView.reloadData()
             
             // 注意: 计算尺寸需要用到模型, 所以必须先传递模型
@@ -35,6 +59,7 @@ class StatusTableViewCell: UITableViewCell {
             // 1.2设置配图的尺寸
             pictureWidthCons?.constant = size.width
             pictureHeightCons?.constant = size.height
+            pictureTopCons?.constant = size.height == 0 ? 0 : 10
 
         }
     }
@@ -52,25 +77,21 @@ class StatusTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func setupUI(){
+    func setupUI(){
         
         // 1.添加子控件
         contentView.addSubview(topView)
         contentView.addSubview(contentLabel)
-        contentView.addSubview(footerView)
-        footerView.backgroundColor = UIColor(white: 0.2, alpha: 0.5)
+//        footerView.backgroundColor = UIColor(white: 0.2, alpha: 0.5)
         contentView.addSubview(pictureView)
+        contentView.addSubview(footerView)
+        
         
         let width = UIScreen.mainScreen().bounds.width
         // 2.布局子控件
         topView.xmg_AlignInner(type: XMG_AlignType.TopLeft, referView: contentView, size: CGSize(width: width, height: 60))
         
         contentLabel.xmg_AlignVertical(type: XMG_AlignType.BottomLeft, referView: topView, size: nil, offset: CGPoint(x: 10, y: 10))
-        
-        let cons = pictureView.xmg_AlignVertical(type: XMG_AlignType.BottomLeft, referView: contentLabel, size: CGSizeZero, offset: CGPoint(x: 0, y: 10))
-        
-        pictureWidthCons = pictureView.xmg_Constraint(cons, attribute: NSLayoutAttribute.Width)
-        pictureHeightCons =  pictureView.xmg_Constraint(cons, attribute: NSLayoutAttribute.Height)
         
         footerView.xmg_AlignVertical(type: XMG_AlignType.BottomLeft, referView: pictureView, size: CGSize(width: width, height: 44), offset: CGPoint(x: -10, y: 10))
     }
@@ -120,7 +141,7 @@ class StatusTableViewCell: UITableViewCell {
     private lazy var topView: StatusTableViewTopView = StatusTableViewTopView()
     
        //正文
-    private lazy var contentLabel:UILabel = {
+    lazy var contentLabel:UILabel = {
         let label = UILabel.createLabel(UIColor.darkGrayColor(), fontSize: 15)
         label.numberOfLines = 0
         label.preferredMaxLayoutWidth = UIScreen.mainScreen().bounds.width - 20
@@ -128,10 +149,10 @@ class StatusTableViewCell: UITableViewCell {
     }()
     
     /// 配图
-    private lazy var pictureView: StatusPictureView = StatusPictureView()
+    lazy var pictureView: StatusPictureView = StatusPictureView()
     
     /// 底部工具条
-    private lazy var footerView: StatusTableViewBottomView = StatusTableViewBottomView()
+    lazy var footerView: StatusTableViewBottomView = StatusTableViewBottomView()
 }
 
 

@@ -23,6 +23,8 @@
 		5F3DFFE71CEA02F80063C10D /* StatusTableViewTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3DFFE61CEA02F80063C10D /* StatusTableViewTopView.swift */; };
 		5F3DFFE91CEA0AB80063C10D /* StatusTableViewBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3DFFE81CEA0AB80063C10D /* StatusTableViewBottomView.swift */; };
 		5F3DFFEB1CEA0B800063C10D /* StatusPictureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3DFFEA1CEA0B800063C10D /* StatusPictureView.swift */; };
+		5F3DFFED1CEA22AE0063C10D /* StatusForwardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3DFFEC1CEA22AE0063C10D /* StatusForwardTableViewCell.swift */; };
+		5F3DFFEF1CEA270E0063C10D /* StatusNormalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3DFFEE1CEA270E0063C10D /* StatusNormalTableViewCell.swift */; };
 		5F43480E1CE4A6460067098B /* UILabel+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F43480D1CE4A6460067098B /* UILabel+Category.swift */; };
 		5F4348101CE4A9660067098B /* UIButton+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F43480F1CE4A9650067098B /* UIButton+Category.swift */; };
 		5F44E89A1CE234C4009B3B90 /* StatusTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F44E8991CE234C4009B3B90 /* StatusTableViewCell.swift */; };
@@ -103,6 +105,8 @@
 		5F3DFFE61CEA02F80063C10D /* StatusTableViewTopView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusTableViewTopView.swift; sourceTree = "<group>"; };
 		5F3DFFE81CEA0AB80063C10D /* StatusTableViewBottomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusTableViewBottomView.swift; sourceTree = "<group>"; };
 		5F3DFFEA1CEA0B800063C10D /* StatusPictureView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusPictureView.swift; sourceTree = "<group>"; };
+		5F3DFFEC1CEA22AE0063C10D /* StatusForwardTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusForwardTableViewCell.swift; sourceTree = "<group>"; };
+		5F3DFFEE1CEA270E0063C10D /* StatusNormalTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusNormalTableViewCell.swift; sourceTree = "<group>"; };
 		5F43480D1CE4A6460067098B /* UILabel+Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Category.swift"; sourceTree = "<group>"; };
 		5F43480F1CE4A9650067098B /* UIButton+Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Category.swift"; sourceTree = "<group>"; };
 		5F44E8991CE234C4009B3B90 /* StatusTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusTableViewCell.swift; sourceTree = "<group>"; };
@@ -263,6 +267,8 @@
 				5F44E8991CE234C4009B3B90 /* StatusTableViewCell.swift */,
 				5F3DFFE81CEA0AB80063C10D /* StatusTableViewBottomView.swift */,
 				5F3DFFEA1CEA0B800063C10D /* StatusPictureView.swift */,
+				5F3DFFEC1CEA22AE0063C10D /* StatusForwardTableViewCell.swift */,
+				5F3DFFEE1CEA270E0063C10D /* StatusNormalTableViewCell.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -551,6 +557,7 @@
 				5F6299EF1CD0FC7E0055A93F /* PopoverPresentationController.swift in Sources */,
 				5F09E0F51CCB8F77005A3E8D /* ProfileTableViewController.swift in Sources */,
 				5FFD44FB1CE2176E0062B0A9 /* User.swift in Sources */,
+				5F3DFFEF1CEA270E0063C10D /* StatusNormalTableViewCell.swift in Sources */,
 				5F4D89DD1CD60CDD00F750E0 /* OAuthViewController.swift in Sources */,
 				5F6299F11CD0FD180055A93F /* PopoverViewController.swift in Sources */,
 				5F8D0A8D1CD70D1F0084D763 /* UserAccount.swift in Sources */,
@@ -563,6 +570,7 @@
 				5F3DFFEB1CEA0B800063C10D /* StatusPictureView.swift in Sources */,
 				5F09E0B51CCB8D21005A3E8D /* AppDelegate.swift in Sources */,
 				5F09E0F31CCB8F6B005A3E8D /* MessageTableViewController.swift in Sources */,
+				5F3DFFED1CEA22AE0063C10D /* StatusForwardTableViewCell.swift in Sources */,
 				5F43480E1CE4A6460067098B /* UILabel+Category.swift in Sources */,
 				5F719C2C1CCFB5C800325921 /* UIBarButtonItem+Category.swift in Sources */,
 				5F99A9281CD72A8200177BFC /* String+Category.swift in Sources */,

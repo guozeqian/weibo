@@ -37,7 +37,9 @@ class StatusPictureView: UICollectionView {
         
         // 3.设置配图的背景颜色
         backgroundColor = UIColor.darkGrayColor()
-    } /**
+    }
+    
+    /**
      计算配图的尺寸
      */
     func calculateImageSize() -> CGSize

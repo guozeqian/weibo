@@ -34,7 +34,10 @@ class HomeTableViewController: BaseTableViewController {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "change", name: XMGPopoverAnimatorWilldismiss, object: nil)
         
         // 注册一个cell
-        tableView.registerClass(StatusTableViewCell.self, forCellReuseIdentifier: XMGHomeReuseIdentifier)
+//        tableView.registerClass(StatusTableViewCell.self, forCellReuseIdentifier: XMGHomeReuseIdentifier)
+        // 注册两个cell
+        tableView.registerClass(StatusNormalTableViewCell.self, forCellReuseIdentifier: StatusTableViewCellIdentifier.NormalCell.rawValue)
+        tableView.registerClass(StatusForwardTableViewCell.self, forCellReuseIdentifier: StatusTableViewCellIdentifier.ForwardCell.rawValue)
         
         //tableView.rowHeight = 200
 //        tableView.estimatedRowHeight = 200
@@ -49,11 +52,13 @@ class HomeTableViewController: BaseTableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        // 1.获取cell
-        let cell = tableView.dequeueReusableCellWithIdentifier(XMGHomeReuseIdentifier, forIndexPath: indexPath) as! StatusTableViewCell
-        // 2.设置数据
+                // 2.设置数据
         let status = statuses![indexPath.row]
-        //cell.textLabel?.text = status.text
+        
+        // 1.获取cell
+        let cell = tableView.dequeueReusableCellWithIdentifier(StatusTableViewCellIdentifier.cellID(status), forIndexPath: indexPath) as! StatusTableViewCell
+        // 2.设置数据
+
         cell.status = status
         
         // 3.返回cell
@@ -66,7 +71,8 @@ class HomeTableViewController: BaseTableViewController {
         {
             return height
         }
-        let cell = tableView.dequeueReusableCellWithIdentifier(XMGHomeReuseIdentifier) as! StatusTableViewCell
+        // 3.拿到cell
+        let cell = tableView.dequeueReusableCellWithIdentifier(StatusTableViewCellIdentifier.cellID(status)) as! StatusTableViewCell
         let rowHeight = cell.rowHeight(status)
         rowCache[status.id] = rowHeight
 

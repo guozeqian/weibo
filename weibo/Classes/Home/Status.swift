@@ -46,6 +46,15 @@ class Status: NSObject {
     
     var storedPicURLS:[NSURL]?
     var user: User?
+    /// 转发微博
+    var retweeted_status: Status?
+    
+    // 如果有转发, 原创就没有配图
+    /// 定义一个计算属性, 用于返回原创获取转发配图的URL数组
+    var pictureURLS:[NSURL]?
+        {
+            return retweeted_status != nil ? retweeted_status?.storedPicURLS : storedPicURLS
+    }
     
      ///加载微博数据
     class func loadStatuses(finished:(models:[Status]?,error:NSError?) -> ()){
@@ -121,10 +130,17 @@ class Status: NSObject {
     override func setValue(value: AnyObject?, forKey key: String) {
         if "user" == key{
             user = User(dict: value as! [String : AnyObject])
-            
-        }else{
-            super.setValue(value, forKey: key)
+            return
         }
+       // 2.判断是否是转发微博, 如果是就自己处理
+        if "retweeted_status" == key
+        {
+            retweeted_status = Status(dict: value as! [String : AnyObject])
+            return
+        }
+        
+        super.setValue(value, forKey: key)
+        
     }
     
     override func setValue(value: AnyObject?, forUndefinedKey key: String) {
