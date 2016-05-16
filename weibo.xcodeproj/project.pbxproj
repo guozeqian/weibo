@@ -20,6 +20,9 @@
 		5F1CC6031CCE5E9F00C960B5 /* BaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F1CC6021CCE5E9F00C960B5 /* BaseTableViewController.swift */; };
 		5F1CC6051CCE5F1F00C960B5 /* VisitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F1CC6041CCE5F1F00C960B5 /* VisitorView.swift */; };
 		5F1CC6071CCE628000C960B5 /* UIView+AutoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F1CC6061CCE628000C960B5 /* UIView+AutoLayout.swift */; };
+		5F3DFFE71CEA02F80063C10D /* StatusTableViewTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3DFFE61CEA02F80063C10D /* StatusTableViewTopView.swift */; };
+		5F3DFFE91CEA0AB80063C10D /* StatusTableViewBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3DFFE81CEA0AB80063C10D /* StatusTableViewBottomView.swift */; };
+		5F3DFFEB1CEA0B800063C10D /* StatusPictureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3DFFEA1CEA0B800063C10D /* StatusPictureView.swift */; };
 		5F43480E1CE4A6460067098B /* UILabel+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F43480D1CE4A6460067098B /* UILabel+Category.swift */; };
 		5F4348101CE4A9660067098B /* UIButton+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F43480F1CE4A9650067098B /* UIButton+Category.swift */; };
 		5F44E89A1CE234C4009B3B90 /* StatusTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F44E8991CE234C4009B3B90 /* StatusTableViewCell.swift */; };
@@ -97,6 +100,9 @@
 		5F1CC6021CCE5E9F00C960B5 /* BaseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTableViewController.swift; sourceTree = "<group>"; };
 		5F1CC6041CCE5F1F00C960B5 /* VisitorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisitorView.swift; sourceTree = "<group>"; };
 		5F1CC6061CCE628000C960B5 /* UIView+AutoLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+AutoLayout.swift"; sourceTree = "<group>"; };
+		5F3DFFE61CEA02F80063C10D /* StatusTableViewTopView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusTableViewTopView.swift; sourceTree = "<group>"; };
+		5F3DFFE81CEA0AB80063C10D /* StatusTableViewBottomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusTableViewBottomView.swift; sourceTree = "<group>"; };
+		5F3DFFEA1CEA0B800063C10D /* StatusPictureView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusPictureView.swift; sourceTree = "<group>"; };
 		5F43480D1CE4A6460067098B /* UILabel+Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Category.swift"; sourceTree = "<group>"; };
 		5F43480F1CE4A9650067098B /* UIButton+Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Category.swift"; sourceTree = "<group>"; };
 		5F44E8991CE234C4009B3B90 /* StatusTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusTableViewCell.swift; sourceTree = "<group>"; };
@@ -253,7 +259,10 @@
 				5F09E0EE1CCB8F4D005A3E8D /* HomeTableViewController.swift */,
 				5FFD44F61CE1FC290062B0A9 /* Status.swift */,
 				5FFD44FA1CE2176E0062B0A9 /* User.swift */,
+				5F3DFFE61CEA02F80063C10D /* StatusTableViewTopView.swift */,
 				5F44E8991CE234C4009B3B90 /* StatusTableViewCell.swift */,
+				5F3DFFE81CEA0AB80063C10D /* StatusTableViewBottomView.swift */,
+				5F3DFFEA1CEA0B800063C10D /* StatusPictureView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -546,10 +555,12 @@
 				5F6299F11CD0FD180055A93F /* PopoverViewController.swift in Sources */,
 				5F8D0A8D1CD70D1F0084D763 /* UserAccount.swift in Sources */,
 				5F09E0EF1CCB8F4D005A3E8D /* HomeTableViewController.swift in Sources */,
+				5F3DFFE71CEA02F80063C10D /* StatusTableViewTopView.swift in Sources */,
 				5F7F3EA81CE4D722005F99FC /* NSDate+Category.swift in Sources */,
 				5F719C2E1CCFBB6A00325921 /* titleButton.swift in Sources */,
 				5F44E89A1CE234C4009B3B90 /* StatusTableViewCell.swift in Sources */,
 				5F1CC6031CCE5E9F00C960B5 /* BaseTableViewController.swift in Sources */,
+				5F3DFFEB1CEA0B800063C10D /* StatusPictureView.swift in Sources */,
 				5F09E0B51CCB8D21005A3E8D /* AppDelegate.swift in Sources */,
 				5F09E0F31CCB8F6B005A3E8D /* MessageTableViewController.swift in Sources */,
 				5F43480E1CE4A6460067098B /* UILabel+Category.swift in Sources */,
@@ -558,6 +569,7 @@
 				5FB8EE8F1CDE3A0900EF4535 /* WelcomeViewController.swift in Sources */,
 				5F6299F81CD114840055A93F /* QRCodeViewController.swift in Sources */,
 				5F1CC6071CCE628000C960B5 /* UIView+AutoLayout.swift in Sources */,
+				5F3DFFE91CEA0AB80063C10D /* StatusTableViewBottomView.swift in Sources */,
 				5F09E0F11CCB8F5E005A3E8D /* DiscoverTableViewController.swift in Sources */,
 				5FFD44F71CE1FC290062B0A9 /* Status.swift in Sources */,
 				5F4348101CE4A9660067098B /* UIButton+Category.swift in Sources */,
