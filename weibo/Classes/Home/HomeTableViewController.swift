@@ -43,8 +43,66 @@ class HomeTableViewController: BaseTableViewController {
 //        tableView.estimatedRowHeight = 200
 //        tableView.rowHeight = UITableViewAutomaticDimension
         tableView.separatorStyle = UITableViewCellSeparatorStyle.None
+        
+        refreshControl = HomeRefreshControl()
+        refreshControl?.addTarget(self, action: "loadData", forControlEvents: UIControlEvents.ValueChanged)
+        
         loadData()
         
+    }
+    
+    deinit{
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+    
+    /// 定义变量记录当前是上拉还是下拉
+    var pullupRefreshFlag = false
+    @objc private func loadData(){
+        var since_id = statuses?.first?.id ?? 0
+        var max_id = 0
+        
+        //判断是否为下拉刷新
+        if pullupRefreshFlag
+        {
+            since_id = 0
+            max_id = statuses?.last?.id ?? 0
+        }
+        
+        Status.loadStatuses(since_id, max_id:max_id) { (models, error) -> () in
+            self.refreshControl?.endRefreshing()
+            
+            if error != nil{
+                return
+            }
+            if since_id > 0
+            {
+                self.statuses = models! + self.statuses!
+                self.showNewStatusCount(models?.count ?? 0)
+            }
+            else if max_id > 0
+            {
+                self.statuses = self.statuses! + models!
+            }
+            else
+            {
+                self.statuses = models
+            }
+        }
+    }
+    
+    private func showNewStatusCount(count:Int){
+        newStatuslabel.hidden = false
+        newStatuslabel.text = (count == 0) ? "没有刷新到新的微博数据" :"刷新到\(count)条微博数据"
+        
+        UIView.animateWithDuration(1, animations: { () -> Void in
+            self.newStatuslabel.transform = CGAffineTransformMakeTranslation(0, self.newStatuslabel.frame.height)
+            }) { (_) -> Void in
+                UIView.animateWithDuration(1, animations: { () -> Void in
+                    self.newStatuslabel.transform = CGAffineTransformIdentity
+                    }, completion: { (_) -> Void in
+                        self.newStatuslabel.hidden = true
+                })
+        }
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -60,7 +118,14 @@ class HomeTableViewController: BaseTableViewController {
         // 2.设置数据
 
         cell.status = status
-        
+        // 4.判断是否滚动到了最后一个cell
+        let count = statuses?.count ?? 0
+        if indexPath.row == (count - 1)
+        {
+            pullupRefreshFlag = true
+            //            print("上拉加载更多")
+            loadData()
+        }
         // 3.返回cell
         return cell
     }
@@ -79,11 +144,6 @@ class HomeTableViewController: BaseTableViewController {
         return rowHeight
     }
     
-    deinit
-    {
-        // 移除通知
-        NSNotificationCenter.defaultCenter().removeObserver(self)
-    }
     private func setupNav(){
         navigationItem.leftBarButtonItem = UIBarButtonItem.createButtonItem("navigationbar_friendattention", targent: self, action: "leftItemClick")
         navigationItem.rightBarButtonItem = UIBarButtonItem.createButtonItem("navigationbar_pop", targent: self, action: "rightItemClick")
@@ -94,16 +154,7 @@ class HomeTableViewController: BaseTableViewController {
         navigationItem.titleView = titleBtn
         
     }
-    
-    private func loadData(){
-        Status.loadStatuses { (models, error) -> () in
-            if error != nil {
-                return
-            }
-            self.statuses = models
-        }
-    
-    }
+
     
     func titleBtnClick(btn:titleButton){
         btn.selected = !btn.selected
@@ -125,8 +176,26 @@ class HomeTableViewController: BaseTableViewController {
     
     var isPresent:Bool = false
     
+    
+    /// 刷新提示控件
+    private lazy var newStatuslabel:UILabel = {
+        let label = UILabel()
+        let height:CGFloat = 44
+        label.frame = CGRect(x: 0, y: 0, width: UIScreen.mainScreen().bounds.width, height: height)
+        label.backgroundColor = UIColor.orangeColor()
+        label.textAlignment = NSTextAlignment.Center
+        self.navigationController?.navigationBar.insertSubview(label, atIndex:0)
+        label.hidden = true
+        return label
+        
+    }()
+    
     var rowCache:[Int:CGFloat] = [Int:CGFloat]()
     
+    override func didReceiveMemoryWarning() {
+        // 清空缓存
+        rowCache.removeAll()
+    }
     
 }
 extension HomeTableViewController:UIViewControllerTransitioningDelegate,UIViewControllerAnimatedTransitioning{

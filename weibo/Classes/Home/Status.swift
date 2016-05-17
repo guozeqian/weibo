@@ -57,10 +57,16 @@ class Status: NSObject {
     }
     
      ///加载微博数据
-    class func loadStatuses(finished:(models:[Status]?,error:NSError?) -> ()){
+    class func loadStatuses(since_id:Int, max_id: Int, finished:(models:[Status]?,error:NSError?) -> ()){
         let path = "2/statuses/home_timeline.json"
-        let params = ["access_token": UserAccount.loadAccount()!.access_token!]
-        
+        var params = ["access_token": UserAccount.loadAccount()!.access_token!]
+        if since_id > 0{
+            params["since_id"] = "\(since_id)"
+        }
+        if max_id > 0
+        {
+            params["max_id"] = "\(max_id)"
+        }
         NetworkTools.shareNetworkTools().GET(path, parameters: params, success: { (_, JSON) -> Void in
             let models = dict2Model(JSON!["statuses"] as! [[String:AnyObject]])
             //finished(models: models, error: nil)
@@ -74,6 +80,11 @@ class Status: NSObject {
     
     /// 缓存配图
     class func cacheStatusImages(list: [Status], finished: (models:[Status]?, error:NSError?)->()) {
+        
+        if list.count == 0
+        {
+            finished(models: list, error: nil)
+        }
         
         // 1.创建一个组
         let group = dispatch_group_create()

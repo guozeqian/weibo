@@ -28,6 +28,8 @@
 		5F43480E1CE4A6460067098B /* UILabel+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F43480D1CE4A6460067098B /* UILabel+Category.swift */; };
 		5F4348101CE4A9660067098B /* UIButton+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F43480F1CE4A9650067098B /* UIButton+Category.swift */; };
 		5F44E89A1CE234C4009B3B90 /* StatusTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F44E8991CE234C4009B3B90 /* StatusTableViewCell.swift */; };
+		5F4848811CEBAEA500BBFC23 /* HomeRefreshView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F4848801CEBAEA500BBFC23 /* HomeRefreshView.xib */; };
+		5F4848831CEBAED100BBFC23 /* HomeRefreshView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4848821CEBAED100BBFC23 /* HomeRefreshView.swift */; };
 		5F4D89DD1CD60CDD00F750E0 /* OAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4D89DC1CD60CDD00F750E0 /* OAuthViewController.swift */; };
 		5F6299ED1CD0F22F0055A93F /* PopoverViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F6299EC1CD0F22F0055A93F /* PopoverViewController.storyboard */; };
 		5F6299EF1CD0FC7E0055A93F /* PopoverPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6299EE1CD0FC7E0055A93F /* PopoverPresentationController.swift */; };
@@ -110,6 +112,8 @@
 		5F43480D1CE4A6460067098B /* UILabel+Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Category.swift"; sourceTree = "<group>"; };
 		5F43480F1CE4A9650067098B /* UIButton+Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Category.swift"; sourceTree = "<group>"; };
 		5F44E8991CE234C4009B3B90 /* StatusTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusTableViewCell.swift; sourceTree = "<group>"; };
+		5F4848801CEBAEA500BBFC23 /* HomeRefreshView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeRefreshView.xib; sourceTree = "<group>"; };
+		5F4848821CEBAED100BBFC23 /* HomeRefreshView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeRefreshView.swift; sourceTree = "<group>"; };
 		5F4D89DC1CD60CDD00F750E0 /* OAuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthViewController.swift; sourceTree = "<group>"; };
 		5F6299EC1CD0F22F0055A93F /* PopoverViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PopoverViewController.storyboard; sourceTree = "<group>"; };
 		5F6299EE1CD0FC7E0055A93F /* PopoverPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverPresentationController.swift; sourceTree = "<group>"; };
@@ -269,6 +273,8 @@
 				5F3DFFEA1CEA0B800063C10D /* StatusPictureView.swift */,
 				5F3DFFEC1CEA22AE0063C10D /* StatusForwardTableViewCell.swift */,
 				5F3DFFEE1CEA270E0063C10D /* StatusNormalTableViewCell.swift */,
+				5F4848801CEBAEA500BBFC23 /* HomeRefreshView.xib */,
+				5F4848821CEBAED100BBFC23 /* HomeRefreshView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -479,6 +485,7 @@
 			files = (
 				5F6299ED1CD0F22F0055A93F /* PopoverViewController.storyboard in Resources */,
 				5FC2BEAC1CCD000600850D74 /* MainVCSettings.json in Resources */,
+				5F4848811CEBAEA500BBFC23 /* HomeRefreshView.xib in Resources */,
 				5F09E0BC1CCB8D21005A3E8D /* Assets.xcassets in Resources */,
 				5F6299F61CD1146F0055A93F /* QRCodeViewController.storyboard in Resources */,
 			);
@@ -574,6 +581,7 @@
 				5F43480E1CE4A6460067098B /* UILabel+Category.swift in Sources */,
 				5F719C2C1CCFB5C800325921 /* UIBarButtonItem+Category.swift in Sources */,
 				5F99A9281CD72A8200177BFC /* String+Category.swift in Sources */,
+				5F4848831CEBAED100BBFC23 /* HomeRefreshView.swift in Sources */,
 				5FB8EE8F1CDE3A0900EF4535 /* WelcomeViewController.swift in Sources */,
 				5F6299F81CD114840055A93F /* QRCodeViewController.swift in Sources */,
 				5F1CC6071CCE628000C960B5 /* UIView+AutoLayout.swift in Sources */,
