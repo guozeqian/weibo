@@ -36,15 +36,24 @@ class Status: NSObject {
         {
         didSet{
             storedPicURLS = [NSURL]()
+            storedLargePicURLS = [NSURL]()
             for dict in pic_urls! {
                 if let urlStr = dict["thumbnail_pic"]{
-                    storedPicURLS?.append(NSURL(string:urlStr as! String)!)
+                    // 1.将字符串转换为URL保存到数组中
+                    storedPicURLS!.append(NSURL(string: urlStr as! String)!)
+                    
+                    // 2.处理大图
+                    let largeURLStr = urlStr.stringByReplacingOccurrencesOfString("thumbnail", withString: "large")
+                    storedLargePicURLS!.append(NSURL(string: largeURLStr)!)
                 }
             }
         }
     }
     
     var storedPicURLS:[NSURL]?
+    /// 保存当前微博所有配图的大图url
+    var storedLargePicURLS:[NSURL]?
+    
     var user: User?
     /// 转发微博
     var retweeted_status: Status?
@@ -54,6 +63,11 @@ class Status: NSObject {
     var pictureURLS:[NSURL]?
         {
             return retweeted_status != nil ? retweeted_status?.storedPicURLS : storedPicURLS
+    }
+    
+    var LargePictureURLS:[NSURL]?
+        {
+              return retweeted_status != nil ? retweeted_status?.storedLargePicURLS : storedLargePicURLS
     }
     
      ///加载微博数据

@@ -30,6 +30,7 @@ class StatusPictureView: UICollectionView {
         
         // 2.设置数据源
         dataSource = self
+        delegate = self
         
         // 2.设置cell之间的间隙
         pictureLayout.minimumInteritemSpacing = 10
@@ -57,10 +58,13 @@ class StatusPictureView: UICollectionView {
             // 3.1取出缓存的图片
             let key = status?.storedPicURLS!.first?.absoluteString
             let image = SDWebImageManager.sharedManager().imageCache.imageFromDiskCacheForKey(key!)
+            if image != nil {
+                pictureLayout.itemSize = image.size
+                // 3.2返回缓存图片的尺寸
+                return image.size
+            }
+            return CGSizeZero
             
-            pictureLayout.itemSize = image.size
-            // 3.2返回缓存图片的尺寸
-            return image.size
         }
         // 4.如果有4张配图, 计算田字格的大小
         let width = 90
@@ -123,7 +127,7 @@ class StatusPictureView: UICollectionView {
     }
     
 }
-extension StatusPictureView: UICollectionViewDataSource
+extension StatusPictureView: UICollectionViewDataSource,UICollectionViewDelegate
 {
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return status?.storedPicURLS?.count ?? 0
@@ -138,6 +142,11 @@ extension StatusPictureView: UICollectionViewDataSource
         
         // 3.返回cell
         return cell
+    }
+    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        print(indexPath)
+        print(status?.storedLargePicURLS![indexPath.item])
     }
     
 }
