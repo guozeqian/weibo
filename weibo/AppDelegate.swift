@@ -8,7 +8,7 @@
 
 import UIKit
 
-//控制器切换通知
+//控制器切换通知 bucuo
 let XMGSwitchRootviewControllerKey = "XMGSwitchRootViewControllerKey"
 
 @UIApplicationMain
