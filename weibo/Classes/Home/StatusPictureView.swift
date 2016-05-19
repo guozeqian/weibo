@@ -127,6 +127,12 @@ class StatusPictureView: UICollectionView {
     }
     
 }
+/// 选中图片的通知名称
+let XMGStatusPictureViewSelected = "XMGStatusPictureViewSelected"
+/// 当前选中图片的索引对应的key
+let XMGStatusPictureViewIndexKey = "XMGStatusPictureViewIndexKey"
+/// 需要展示的所有图片对应的key
+let XMGStatusPictureViewURLsKey = "XMGStatusPictureViewURLsKey"
 extension StatusPictureView: UICollectionViewDataSource,UICollectionViewDelegate
 {
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -145,8 +151,9 @@ extension StatusPictureView: UICollectionViewDataSource,UICollectionViewDelegate
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        print(indexPath)
-        print(status?.storedLargePicURLS![indexPath.item])
+       
+        let info = [XMGStatusPictureViewIndexKey : indexPath, XMGStatusPictureViewURLsKey : status!.storedLargePicURLS!]
+        NSNotificationCenter.defaultCenter().postNotificationName(XMGStatusPictureViewSelected, object: self, userInfo: info)
     }
     
 }

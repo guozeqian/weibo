@@ -48,6 +48,7 @@
 		5FB8EE8F1CDE3A0900EF4535 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB8EE8E1CDE3A0900EF4535 /* WelcomeViewController.swift */; };
 		5FC2BEAC1CCD000600850D74 /* MainVCSettings.json in Resources */ = {isa = PBXBuildFile; fileRef = 5FC2BEAA1CCD000600850D74 /* MainVCSettings.json */; };
 		5FC2BEAD1CCD000600850D74 /* NullViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC2BEAB1CCD000600850D74 /* NullViewController.swift */; };
+		5FF403701CECC0AA002EE096 /* PhotoBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF4036F1CECC0AA002EE096 /* PhotoBrowserViewController.swift */; };
 		5FFD44F71CE1FC290062B0A9 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFD44F61CE1FC290062B0A9 /* Status.swift */; };
 		5FFD44F91CE201750062B0A9 /* PopoverAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFD44F81CE201750062B0A9 /* PopoverAnimator.swift */; };
 		5FFD44FB1CE2176E0062B0A9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFD44FA1CE2176E0062B0A9 /* User.swift */; };
@@ -131,6 +132,7 @@
 		5FB8EE8E1CDE3A0900EF4535 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		5FC2BEAA1CCD000600850D74 /* MainVCSettings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MainVCSettings.json; sourceTree = "<group>"; };
 		5FC2BEAB1CCD000600850D74 /* NullViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NullViewController.swift; sourceTree = "<group>"; };
+		5FF4036F1CECC0AA002EE096 /* PhotoBrowserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoBrowserViewController.swift; sourceTree = "<group>"; };
 		5FFD44F61CE1FC290062B0A9 /* Status.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
 		5FFD44F81CE201750062B0A9 /* PopoverAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverAnimator.swift; sourceTree = "<group>"; };
 		5FFD44FA1CE2176E0062B0A9 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -262,6 +264,7 @@
 		5F09E0E71CCB8F13005A3E8D /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				5FF4036E1CECC08F002EE096 /* PhotoBrowser */,
 				5F6299F41CD1145C0055A93F /* QRCode */,
 				5F6299E91CD0F1F30055A93F /* Popover */,
 				5F09E0EE1CCB8F4D005A3E8D /* HomeTableViewController.swift */,
@@ -362,6 +365,14 @@
 				5FC2BEAB1CCD000600850D74 /* NullViewController.swift */,
 			);
 			path = Resource;
+			sourceTree = "<group>";
+		};
+		5FF4036E1CECC08F002EE096 /* PhotoBrowser */ = {
+			isa = PBXGroup;
+			children = (
+				5FF4036F1CECC0AA002EE096 /* PhotoBrowserViewController.swift */,
+			);
+			path = PhotoBrowser;
 			sourceTree = "<group>";
 		};
 		A33B990057E49551BD49EB86 /* Frameworks */ = {
@@ -572,6 +583,7 @@
 				5F3DFFE71CEA02F80063C10D /* StatusTableViewTopView.swift in Sources */,
 				5F7F3EA81CE4D722005F99FC /* NSDate+Category.swift in Sources */,
 				5F719C2E1CCFBB6A00325921 /* titleButton.swift in Sources */,
+				5FF403701CECC0AA002EE096 /* PhotoBrowserViewController.swift in Sources */,
 				5F44E89A1CE234C4009B3B90 /* StatusTableViewCell.swift in Sources */,
 				5F1CC6031CCE5E9F00C960B5 /* BaseTableViewController.swift in Sources */,
 				5F3DFFEB1CEA0B800063C10D /* StatusPictureView.swift in Sources */,

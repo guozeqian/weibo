@@ -32,12 +32,14 @@ class HomeTableViewController: BaseTableViewController {
         // 3.注册通知, 监听菜单
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "change", name: XMGPopoverAnimatorWillShow, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "change", name: XMGPopoverAnimatorWilldismiss, object: nil)
+         NSNotificationCenter.defaultCenter().addObserver(self, selector: "showPhotoBrowser:", name: XMGStatusPictureViewSelected, object: nil)
         
         // 注册一个cell
 //        tableView.registerClass(StatusTableViewCell.self, forCellReuseIdentifier: XMGHomeReuseIdentifier)
         // 注册两个cell
         tableView.registerClass(StatusNormalTableViewCell.self, forCellReuseIdentifier: StatusTableViewCellIdentifier.NormalCell.rawValue)
         tableView.registerClass(StatusForwardTableViewCell.self, forCellReuseIdentifier: StatusTableViewCellIdentifier.ForwardCell.rawValue)
+        
         
         //tableView.rowHeight = 200
 //        tableView.estimatedRowHeight = 200
@@ -49,6 +51,18 @@ class HomeTableViewController: BaseTableViewController {
         
         loadData()
         
+    }
+    
+    func showPhotoBrowser(notify:NSNotification){
+        guard let indexPath = notify.userInfo![XMGStatusPictureViewIndexKey] as? NSIndexPath else{
+            return
+        }
+        guard let urls = notify.userInfo![XMGStatusPictureViewURLsKey] as? [NSURL] else {
+            return
+        }
+        // 1.创建图片浏览器
+        let vc = PhotoBrowserViewController(index: indexPath.item, urls: urls)
+        presentViewController(vc, animated: true, completion:nil)
     }
     
     deinit{
