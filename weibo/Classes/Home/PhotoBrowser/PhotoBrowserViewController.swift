@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+private let photoBrowserCellReuseIdentifier = "pictureCell"
 class PhotoBrowserViewController: UIViewController {
 
     var currentIndex:Int?
@@ -41,6 +41,10 @@ class PhotoBrowserViewController: UIViewController {
         closeBtn.xmg_AlignInner(type: XMG_AlignType.BottomLeft, referView: view, size: CGSize(width: 100, height: 35))
         saveBtn.xmg_AlignInner(type: XMG_AlignType.BottomRight, referView: view, size: CGSize(width: 100, height: 35))
         collectionView.frame = UIScreen.mainScreen().bounds
+        
+        //设置数据源
+        collectionView.dataSource = self
+        collectionView.registerClass(PhotoBrowserCell.self, forCellWithReuseIdentifier: photoBrowserCellReuseIdentifier)
     }
 
     func close(){
@@ -69,11 +73,39 @@ class PhotoBrowserViewController: UIViewController {
         return btn
     }()
     
-    private lazy var collectionView:UICollectionView = UICollectionView(frame: CGRectZero, collectionViewLayout: UICollectionViewLayout())
-
-
+    private lazy var collectionView:UICollectionView = UICollectionView(frame: CGRectZero, collectionViewLayout: PhotoBrowserLayout())
 }
 
+extension PhotoBrowserViewController:UICollectionViewDataSource{
+    
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int{
+        return pictureURLs?.count ?? 0
+    }
+    
+    
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell{
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(photoBrowserCellReuseIdentifier, forIndexPath: indexPath) as! PhotoBrowserCell
+        cell.backgroundColor = UIColor.randomColor()
+        cell.imageURL = pictureURLs![indexPath.item]
+        
+        return cell
+        
+    }
+
+}
+class PhotoBrowserLayout : UICollectionViewFlowLayout {
+    
+    override func prepareLayout() {
+        itemSize = UIScreen.mainScreen().bounds.size
+        minimumInteritemSpacing = 0
+        minimumLineSpacing = 0
+        scrollDirection = UICollectionViewScrollDirection.Horizontal
+        
+        collectionView?.showsHorizontalScrollIndicator = false
+        collectionView?.pagingEnabled = true
+        collectionView?.bounces =  false
+    }
+}
 
 
 

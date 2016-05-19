@@ -45,6 +45,8 @@
 		5F8D0A8D1CD70D1F0084D763 /* UserAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F8D0A8C1CD70D1F0084D763 /* UserAccount.swift */; };
 		5F99A9281CD72A8200177BFC /* String+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F99A9271CD72A8200177BFC /* String+Category.swift */; };
 		5F99A92B1CD7730500177BFC /* NewfeatureCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F99A92A1CD7730500177BFC /* NewfeatureCollectionViewController.swift */; };
+		5F9F19D71CEDDA080025E644 /* PhotoBrowserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9F19D61CEDDA080025E644 /* PhotoBrowserCell.swift */; };
+		5F9F19D91CEDDB330025E644 /* UIColor+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9F19D81CEDDB330025E644 /* UIColor+Category.swift */; };
 		5FB8EE8F1CDE3A0900EF4535 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB8EE8E1CDE3A0900EF4535 /* WelcomeViewController.swift */; };
 		5FC2BEAC1CCD000600850D74 /* MainVCSettings.json in Resources */ = {isa = PBXBuildFile; fileRef = 5FC2BEAA1CCD000600850D74 /* MainVCSettings.json */; };
 		5FC2BEAD1CCD000600850D74 /* NullViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC2BEAB1CCD000600850D74 /* NullViewController.swift */; };
@@ -129,6 +131,8 @@
 		5F8D0A8C1CD70D1F0084D763 /* UserAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAccount.swift; sourceTree = "<group>"; };
 		5F99A9271CD72A8200177BFC /* String+Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Category.swift"; sourceTree = "<group>"; };
 		5F99A92A1CD7730500177BFC /* NewfeatureCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewfeatureCollectionViewController.swift; sourceTree = "<group>"; };
+		5F9F19D61CEDDA080025E644 /* PhotoBrowserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoBrowserCell.swift; sourceTree = "<group>"; };
+		5F9F19D81CEDDB330025E644 /* UIColor+Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Category.swift"; sourceTree = "<group>"; };
 		5FB8EE8E1CDE3A0900EF4535 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		5FC2BEAA1CCD000600850D74 /* MainVCSettings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MainVCSettings.json; sourceTree = "<group>"; };
 		5FC2BEAB1CCD000600850D74 /* NullViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NullViewController.swift; sourceTree = "<group>"; };
@@ -315,6 +319,7 @@
 				5F1CC6061CCE628000C960B5 /* UIView+AutoLayout.swift */,
 				5F8D0A8A1CD704230084D763 /* NetworkTools.swift */,
 				5F99A9271CD72A8200177BFC /* String+Category.swift */,
+				5F9F19D81CEDDB330025E644 /* UIColor+Category.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -371,6 +376,7 @@
 			isa = PBXGroup;
 			children = (
 				5FF4036F1CECC0AA002EE096 /* PhotoBrowserViewController.swift */,
+				5F9F19D61CEDDA080025E644 /* PhotoBrowserCell.swift */,
 			);
 			path = PhotoBrowser;
 			sourceTree = "<group>";
@@ -578,6 +584,8 @@
 				5F3DFFEF1CEA270E0063C10D /* StatusNormalTableViewCell.swift in Sources */,
 				5F4D89DD1CD60CDD00F750E0 /* OAuthViewController.swift in Sources */,
 				5F6299F11CD0FD180055A93F /* PopoverViewController.swift in Sources */,
+				5F9F19D91CEDDB330025E644 /* UIColor+Category.swift in Sources */,
+				5F9F19D71CEDDA080025E644 /* PhotoBrowserCell.swift in Sources */,
 				5F8D0A8D1CD70D1F0084D763 /* UserAccount.swift in Sources */,
 				5F09E0EF1CCB8F4D005A3E8D /* HomeTableViewController.swift in Sources */,
 				5F3DFFE71CEA02F80063C10D /* StatusTableViewTopView.swift in Sources */,
