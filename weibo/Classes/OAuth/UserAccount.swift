@@ -7,7 +7,7 @@
 //
 
 import UIKit
-/// 
+///
 class UserAccount: NSObject,NSCoding {
 
     var access_token: String?

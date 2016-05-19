@@ -13,6 +13,7 @@ class PhotoBrowserCell: UICollectionViewCell {
     
     var imageURL:NSURL?{
         didSet{
+            reset()
             iconView.sd_setImageWithURL(imageURL) { (image, _, _, _) -> Void in
 //                let size = self.displaySize(image)
 //                self.iconView.frame = CGRect(origin: CGPointZero, size: size)
@@ -21,6 +22,13 @@ class PhotoBrowserCell: UICollectionViewCell {
         }
     }
 
+    private func reset(){
+        scrollview.contentInset = UIEdgeInsetsZero
+        scrollview.contentOffset = CGPointZero
+        scrollview.contentSize = CGSizeZero
+        //重置imageview
+        iconView.transform = CGAffineTransformIdentity
+    }
 
     /**
      调整图片显示的位置
@@ -74,9 +82,37 @@ class PhotoBrowserCell: UICollectionViewCell {
         scrollview.addSubview(iconView)
         
         scrollview.frame = UIScreen.mainScreen().bounds
+        
+        scrollview.delegate = self
+        scrollview.maximumZoomScale = 2.0
+        scrollview.minimumZoomScale = 0.5
     }
 
     private lazy var scrollview:UIScrollView = UIScrollView()
     
     private lazy var iconView:UIImageView = UIImageView()
 }
+
+extension PhotoBrowserCell:UIScrollViewDelegate{
+    
+    func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView? {
+        return iconView
+    }
+    
+    func scrollViewDidEndZooming(scrollView: UIScrollView, withView view: UIView?, atScale scale: CGFloat) {
+//        print("11")
+        var offsetX = (UIScreen.mainScreen().bounds.width - view!.frame.width) * 0.5
+        var offsetY = (UIScreen.mainScreen().bounds.height - view!.frame.height) * 0.5
+        offsetX = offsetX < 0 ? 0 : offsetX
+        offsetY = offsetY < 0 ? 0 : offsetY
+        
+        scrollview.contentInset = UIEdgeInsets(top: offsetY, left: offsetX, bottom: offsetY, right: offsetX)
+    }
+    
+}
+
+
+
+
+
+
