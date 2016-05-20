@@ -45,6 +45,8 @@ class PhotoBrowserViewController: UIViewController {
         //设置数据源
         collectionView.dataSource = self
         collectionView.registerClass(PhotoBrowserCell.self, forCellWithReuseIdentifier: photoBrowserCellReuseIdentifier)
+        
+       // PhotoBrowserCellDelegate = self
     }
 
     func close(){
@@ -76,7 +78,11 @@ class PhotoBrowserViewController: UIViewController {
     private lazy var collectionView:UICollectionView = UICollectionView(frame: CGRectZero, collectionViewLayout: PhotoBrowserLayout())
 }
 
-extension PhotoBrowserViewController:UICollectionViewDataSource{
+extension PhotoBrowserViewController:UICollectionViewDataSource,PhotoBrowserCellDelegate{
+    
+    func photoBrowserCellDidClose(cell: PhotoBrowserCell) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int{
         return pictureURLs?.count ?? 0
@@ -88,6 +94,7 @@ extension PhotoBrowserViewController:UICollectionViewDataSource{
         cell.backgroundColor = UIColor.randomColor()
         cell.imageURL = pictureURLs![indexPath.item]
         
+        cell.photoBrowserCellDelegate = self
         return cell
         
     }

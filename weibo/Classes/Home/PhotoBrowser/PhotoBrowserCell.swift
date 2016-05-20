@@ -9,11 +9,20 @@
 import UIKit
 import SDWebImage
 
+protocol PhotoBrowserCellDelegate:NSObjectProtocol {
+    func photoBrowserCellDidClose(cell:PhotoBrowserCell)
+}
+
 class PhotoBrowserCell: UICollectionViewCell {
+    
+    weak var photoBrowserCellDelegate:PhotoBrowserCellDelegate?
     
     var imageURL:NSURL?{
         didSet{
             reset()
+            
+            activity.startAnimating()
+            
             iconView.sd_setImageWithURL(imageURL) { (image, _, _, _) -> Void in
 //                let size = self.displaySize(image)
 //                self.iconView.frame = CGRect(origin: CGPointZero, size: size)
@@ -53,6 +62,10 @@ class PhotoBrowserCell: UICollectionViewCell {
         }
     }
     
+    func close(){
+        photoBrowserCellDelegate?.photoBrowserCellDidClose(self)
+    }
+    
     /**
      按照图片的宽高比计算图片显示的大小
      */
@@ -86,11 +99,17 @@ class PhotoBrowserCell: UICollectionViewCell {
         scrollview.delegate = self
         scrollview.maximumZoomScale = 2.0
         scrollview.minimumZoomScale = 0.5
+        
+        let tap = UITapGestureRecognizer(target: self, action: "close")
+        iconView.addGestureRecognizer(tap)
+        iconView.userInteractionEnabled = true
     }
 
     private lazy var scrollview:UIScrollView = UIScrollView()
     
     private lazy var iconView:UIImageView = UIImageView()
+    
+    private lazy var activity:UIActivityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.WhiteLarge)
 }
 
 extension PhotoBrowserCell:UIScrollViewDelegate{
