@@ -26,6 +26,7 @@ class PhotoBrowserCell: UICollectionViewCell {
             iconView.sd_setImageWithURL(imageURL) { (image, _, _, _) -> Void in
 //                let size = self.displaySize(image)
 //                self.iconView.frame = CGRect(origin: CGPointZero, size: size)
+                self.activity.stopAnimating()
                 self.setImageViewPostion()
             }
         }
