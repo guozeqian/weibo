@@ -107,7 +107,7 @@ class PhotoBrowserCell: UICollectionViewCell {
 
     private lazy var scrollview:UIScrollView = UIScrollView()
     
-    private lazy var iconView:UIImageView = UIImageView()
+    lazy var iconView:UIImageView = UIImageView()
     
     private lazy var activity:UIActivityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.WhiteLarge)
 }
